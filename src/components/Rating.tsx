@@ -6,7 +6,7 @@ const Rating = ({ rating }: { rating: number }) => {
 
   return (
     <div className="flex flex-row gap-2 items-center mt-1 mb-1">
-      <p className="text-sm font-medium">{rating.toFixed(1)}</p>
+      <p className="text-sm font-medium text-black">{rating.toFixed(1)}</p>
       <div className="relative flex items-center" style={{ width: "80px" }}>
         <div
           className="absolute top-0 left-0 flex"

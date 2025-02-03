@@ -65,7 +65,7 @@ export default function ProductCard({ product }: { product: Product }) {
             <p className="text-lg font-medium text-black">
               ${product.price.toFixed(2)}
             </p>
-            <s>
+            <s className="line-through text-black">
               <p className="text-lg font-medium opacity-80 text-black">
                 $
                 {calculateOriginalPrice(
