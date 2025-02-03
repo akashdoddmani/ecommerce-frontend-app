@@ -25,7 +25,7 @@ const Rating = ({ rating }: { rating: number }) => {
             />
           ))}
         </div>
-        <div className="flex">
+        <div className="flex opacity-30">
           {[...Array(5)].map((_, index) => (
             <Image
               src="/images/star.png"
