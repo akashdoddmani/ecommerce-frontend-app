@@ -68,7 +68,7 @@ const ProductDetails = () => {
         <Rating rating={productData.rating} />
         <div className="flex md:flex-row flex-col justify-between items-start md:items-center bg-primary/10 rounded-lg p-2 mb-2 mt-2">
           <p className="text-xl flex flex-col md:flex-row gap-2">
-            <span>
+            <span className="text-black">
               <span className="font-bold text-black">Price:</span> $
               {productData.price}
               <s className="ml-2 text-black">
