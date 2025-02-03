@@ -36,7 +36,7 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
           className="w-24 h-24 object-cover rounded-lg"
         />
         <div className="ml-4">
-          <h2 className="text-xl font-semibold">{item.name}</h2>
+          <h2 className="text-xl font-semibold text-black">{item.name}</h2>
           <p className="text-gray-500">Quantity: {item.quantity}</p>
         </div>
       </div>
