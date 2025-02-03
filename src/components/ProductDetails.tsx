@@ -63,14 +63,15 @@ const ProductDetails = () => {
         <Carousel images={productData.images} />
       </div>
       <div className="flex flex-col mt-4">
-        <h1 className="text-2xl font-bold">{productData.title}</h1>
+        <h1 className="text-2xl font-bold text-black">{productData.title}</h1>
         <p className="text-sm text-gray-500">{productData.description}</p>
         <Rating rating={productData.rating} />
         <div className="flex md:flex-row flex-col justify-between items-start md:items-center bg-primary/10 rounded-lg p-2 mb-2 mt-2">
           <p className="text-xl flex flex-col md:flex-row gap-2">
             <span>
-              <span className="font-bold ">Price:</span> ${productData.price}
-              <s className="ml-2 ">
+              <span className="font-bold text-black">Price:</span> $
+              {productData.price}
+              <s className="ml-2 text-black">
                 $
                 {calculateOriginalPrice(
                   productData.price,
@@ -87,9 +88,9 @@ const ProductDetails = () => {
             {productData.tags.join(", ")}
           </p>
         </div>
-        <span className="">• {productData.warrantyInformation}</span>{" "}
-        <span className="">• {productData.shippingInformation}</span>{" "}
-        <span className="">• {productData.returnPolicy}</span>
+        <span className="text-black">• {productData.warrantyInformation}</span>{" "}
+        <span className="text-black">• {productData.shippingInformation}</span>{" "}
+        <span className="text-black">• {productData.returnPolicy}</span>
         <button
           className={`w-full bg-primary px-4 py-2 rounded-lg mt-4 self-center ${
             isInCart
@@ -100,7 +101,7 @@ const ProductDetails = () => {
         >
           {isInCart ? "Remove from Cart" : "Add to Cart"}
         </button>
-        <h2 className="text-lg font-bold mt-4 mb-2">Reviews</h2>
+        <h2 className="text-lg font-bold mt-4 mb-2 text-black">Reviews</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {productData.reviews.map((review: Review, index: number) => (
             <div
