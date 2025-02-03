@@ -21,7 +21,7 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const { productID } = useParams();
-  const isInCart = cartItems.some((item) => item.id === productID);
+  const isInCart = cartItems.some((item) => item.id == productID);
   const {
     data: productData,
     error,
