@@ -10,6 +10,13 @@ import { RootState } from "@/store/store";
 import { useGetProductDetailsQuery } from "@/store/apiSlice";
 import { useParams } from "next/navigation";
 
+// Define a type for reviews if not already defined
+interface Review {
+  reviewerName: string;
+  rating: number;
+  comment: string;
+}
+
 const ProductDetails = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state: RootState) => state.cart.items);
@@ -95,7 +102,7 @@ const ProductDetails = () => {
         </button>
         <h2 className="text-lg font-bold mt-4 mb-2">Reviews</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {productData.reviews.map((review: any, index: number) => (
+          {productData.reviews.map((review: Review, index: number) => (
             <div
               key={index.toString()}
               className="flex flex-col bg-primary/10 rounded-lg p-4"

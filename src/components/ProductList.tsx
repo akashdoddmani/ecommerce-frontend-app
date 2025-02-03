@@ -23,7 +23,7 @@ interface Product {
   discountPercentage: number;
 }
 
-const ProductList: React.FC<{}> = () => {
+const ProductList: React.FC<unknown> = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -46,14 +46,14 @@ const ProductList: React.FC<{}> = () => {
 
   useEffect(() => {
     dispatch(setCategories(categories));
-  }, [categories]);
+  }, [categories, dispatch]);
 
   useEffect(() => {
     if (data) {
       dispatch(setProducts(data.products || []));
       dispatch(setTotalProducts(data.total || 0));
     }
-  }, [data]);
+  }, [data, dispatch]);
 
   const handleSort = (criteria: string) => {
     if (criteria === "price") {

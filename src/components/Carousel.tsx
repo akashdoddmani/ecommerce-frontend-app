@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 
 interface CarouselProps {
   images: string[];
@@ -35,10 +36,13 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
             }`}
             data-carousel-item
           >
-            <img
+            <Image
               src={image}
-              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt={`Slide ${index + 1}`}
+              width={400}
+              height={300}
+              layout="responsive"
+              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             />
           </div>
         ))}

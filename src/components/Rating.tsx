@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const Rating = ({ rating }: { rating: number }) => {
   const widthPercentage = (rating / 5) * 100;
@@ -15,20 +16,22 @@ const Rating = ({ rating }: { rating: number }) => {
           }}
         >
           {[...Array(5)].map((_, index) => (
-            <img
+            <Image
               src="/images/star.png"
               alt="star"
-              className="w-4 h-4"
+              width={16}
+              height={16}
               key={`filled-${index}`}
             />
           ))}
         </div>
         <div className="flex">
           {[...Array(5)].map((_, index) => (
-            <img
+            <Image
               src="/images/star.png"
               alt="star"
-              className="w-4 h-4 opacity-20"
+              width={16}
+              height={16}
               key={`background-${index}`}
             />
           ))}
