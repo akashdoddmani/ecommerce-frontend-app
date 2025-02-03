@@ -46,7 +46,7 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
             className="w-7 h-7 cursor-pointer text-primary-foreground bg-primary p-1 rounded-lg"
             onClick={handleDecreaseQuantity}
           />
-          <span>{item.quantity}</span>
+          <span className="text-black">{item.quantity}</span>
           <PlusIcon
             className="w-7 h-7 cursor-pointer text-primary-foreground bg-primary p-1 rounded-lg"
             onClick={handleIncreaseQuantity}
