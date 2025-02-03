@@ -1,5 +1,6 @@
 "use client";
 
+import { RootState } from "@/store/store";
 import React from "react";
 import {
   ChevronFirstIcon,
@@ -8,28 +9,30 @@ import {
   ChevronRightIcon,
 } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useSelector } from "react-redux";
 
 interface PaginationProps {
-  totalProducts: number;
   productsPerPage: number;
 }
 
-const Pagination: React.FC<PaginationProps> = ({
-  totalProducts,
-  productsPerPage,
-}) => {
+const Pagination: React.FC<PaginationProps> = ({ productsPerPage }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const totalProducts = useSelector(
+    (state: RootState) => state.products.totalProducts
+  );
   const currentSkip = Number(searchParams.get("skip")) || 0;
 
   const totalPages = Math.ceil(totalProducts / productsPerPage);
   const currentPage = Math.floor(currentSkip / productsPerPage) + 1;
 
   const handlePageChange = (newPage: number) => {
-    const newSkip = (newPage - 1) * productsPerPage;
-    const currentParams = new URLSearchParams(searchParams.toString());
-    currentParams.set("skip", newSkip.toString());
-    router.push(`?${currentParams.toString()}`);
+    if (currentPage !== totalPages) {
+      const newSkip = (newPage - 1) * productsPerPage;
+      const currentParams = new URLSearchParams(searchParams.toString());
+      currentParams.set("skip", newSkip.toString());
+      router.push(`?${currentParams.toString()}`);
+    }
   };
 
   const handleFirstPage = () => {

@@ -56,13 +56,17 @@ export default function ProductCard({ product }: { product: Product }) {
           />
         </div>
         <div className="p-4 text-2xl font-semibold leading-none tracking-tight">
-          <div className="text-base font-normal">{product.title}</div>
+          <div className="text-base font-normal text-black">
+            {product.title}
+          </div>
           <Rating rating={product.rating} />
 
           <div className="flex flex-row items-center gap-2">
-            <p className="text-lg font-medium">${product.price.toFixed(2)}</p>
+            <p className="text-lg font-medium text-black">
+              ${product.price.toFixed(2)}
+            </p>
             <s>
-              <p className="text-lg font-medium opacity-80">
+              <p className="text-lg font-medium opacity-80 text-black">
                 $
                 {calculateOriginalPrice(
                   product.price,

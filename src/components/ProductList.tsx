@@ -32,9 +32,6 @@ const ProductList: React.FC<unknown> = () => {
   const { data: categories } = useGetCategoriesQuery({});
 
   const products = useSelector((state: RootState) => state.products.products);
-  const totalProducts = useSelector(
-    (state: RootState) => state.products.totalProducts
-  );
 
   const [showSortOptions, setShowSortOptions] = useState(false);
   const [showCategoryOptions, setShowCategoryOptions] = useState(false);
@@ -195,7 +192,6 @@ const ProductList: React.FC<unknown> = () => {
       </div>
 
       <Pagination
-        totalProducts={totalProducts}
         productsPerPage={12} // Adjust based on your pagination setup
       />
     </>
